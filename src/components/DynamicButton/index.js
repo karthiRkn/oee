@@ -1,11 +1,11 @@
-// ButtonComponent.jsx
+// DynamicButton.jsx
 import React from 'react';
 import { Button } from 'antd';
 
-const DynamicButton = ({ type, text, onClick, disabled, loading }) => {
+const DynamicButton = (props) => {
   return (
-    <Button type={type} onClick={onClick} disabled={disabled} loading={loading}>
-      {text}
+    <Button {...props}>
+      {props.text}
     </Button>
   );
 };

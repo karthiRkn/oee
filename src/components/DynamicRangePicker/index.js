@@ -1,26 +1,16 @@
 // DynamicRangePicker.jsx
-import React from 'react'
-import {DatePicker} from 'antd'
+import React from 'react';
+import { DatePicker } from 'antd';
 
-const DynamicRangePicker = ({
-  value,
-  onChange,
-  format,
-  disabledDate,
-  showTime,
-  placeholder,
-}) => {
+const DynamicRangePicker = (props) => {
+  const { style, ...restProps } = props;
+
   return (
     <DatePicker.RangePicker
-      value={value}
-      onChange={onChange}
-      format={format}
-      disabledDate={disabledDate}
-      showTime={showTime}
-      placeholder={placeholder}
-      style={{marginRight: '10px'}}
+      style={{ ...style, marginRight: '10px' }}
+      {...restProps}
     />
-  )
-}
+  );
+};
 
-export default DynamicRangePicker
+export default DynamicRangePicker;

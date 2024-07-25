@@ -4,7 +4,7 @@ import {Flex, Spin} from 'antd'
 import {LoadingOutlined} from '@ant-design/icons'
 import Header from '../Header'
 import PlantInputForm from '../PlantInputForm'
-import Tiles from '../Tiles'
+import DynamicTile from '../DynamicTile'
 import './index.css'
 
 const initialShiftList = [
@@ -102,7 +102,9 @@ const ShiftList = () => {
   const renamedShiftList = filteredShiftList.map(shift => ({
     ...shift,
     name: shift.shiftName,
-    shiftName: undefined, // Optionally, remove the old property (set to undefined)
+    shiftName: undefined, 
+    id: shift.shiftId,
+    shiftId: undefined,// Optionally, remove the old property (set to undefined)
   }))
 
   const inputJson = {
@@ -123,7 +125,7 @@ const ShiftList = () => {
         return (
           <Flex gap="middle" align="start" vertical className="ant-flex-tile">
             {renamedShiftList.map(data => (
-              <Tiles jsonData={{...inputJson, tilesData: data}} />
+              <DynamicTile key={data.id} jsonData={{...inputJson, tilesData: data}} />
             ))}
           </Flex>
         )
@@ -131,7 +133,7 @@ const ShiftList = () => {
         return (
           <Flex gap="middle" align="start" vertical className="ant-flex-tile">
             {renamedShiftList.map(data => (
-              <Tiles jsonData={{...inputJson, tilesData: data}} />
+              <DynamicTile key={data.id} jsonData={{...inputJson, tilesData: data}} />
             ))}
           </Flex>
         )

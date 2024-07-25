@@ -1,7 +1,7 @@
 'use client'
 import './index.css'
 import Header from '../Header'
-import Tiles from '../Tiles'
+import DynamicTile from '../DynamicTile'
 import {Flex} from 'antd'
 
 const Resource = ({id}) => {
@@ -174,6 +174,9 @@ const Resource = ({id}) => {
   const getShitName = initialShiftList.filter(
     sId => sId.shiftId == id.resourceId,
   )
+  const inputJson = {
+    pathName: 'chart',
+  }
 
   return (
     <>
@@ -182,10 +185,8 @@ const Resource = ({id}) => {
         <h1 className="shift-headings">{getShitName[0].shiftName}</h1>
         <Flex gap="middle" align="start" vertical className="ant-flex-tile">
           {renamedResourceList.map(data => (
-            <Tiles
-              jsonData={{tilesData: data}}
-              key={data.resourceId}
-              pathName="MainHome"
+            <DynamicTile
+              key={data.resourceId} jsonData={{...inputJson, tilesData: data}}
             />
           ))}
         </Flex>

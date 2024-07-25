@@ -1,17 +1,14 @@
-import React from 'react'
-import {Input} from 'antd'
-import './index.css'
+// DynamicInput.jsx
+import React from 'react';
+import { Input } from 'antd';
+import './index.css';
 
-const DynamicInput = ({placeholder, value, onChange, disabled}) => {
+const DynamicInput = (props) => {
+  const { className, ...restProps } = props;
+
   return (
-    <Input
-      className="dynamic-input"
-      placeholder={placeholder}
-      value={value}
-      onChange={onChange}
-      disabled={disabled}
-    />
-  )
-}
+    <Input className={`dynamic-input ${className}`} {...restProps} />
+  );
+};
 
-export default DynamicInput
+export default DynamicInput;

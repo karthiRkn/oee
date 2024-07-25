@@ -6,6 +6,7 @@ import Cookies from 'js-cookie'
 import {useRouter} from 'next/navigation'
 import './index.css'
 import Link from 'next/link'
+import DynamicButton from '../DynamicButton';
 
 const {Header} = Layout
 const {Search} = Input
@@ -44,9 +45,8 @@ const AppHeader = () => {
         <Search placeholder='Search' allowClear style={{width: 200}} />
       </div>
       <div className='logout'>
-      <Button type="primary" danger onClick={onClickLogout} icon={<UserOutlined />}>
-          Logout
-        </Button>
+      <DynamicButton type="primary" onClick={onClickLogout} icon={<UserOutlined />} text="Logout" danger />
+        
       </div>
     </Header>
   )
